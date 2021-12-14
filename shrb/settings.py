@@ -163,7 +163,7 @@ django_heroku.settings(locals())
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://shrb2.herokuapp.com/",
+    "https://kind-wozniak-cfcd11.netlify.app",
 ]
 
 CORS_ALLOW_METHODS = [
