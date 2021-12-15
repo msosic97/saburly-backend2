@@ -20,13 +20,13 @@ class CardList(APIView):
         userData = request.data
         userData["user"] = request.user.id
         serializer = CardSerializer(data=userData)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             if Card.objects.filter(date_from=userData["date_from"], date_to=userData["date_to"], user_id=request.user.id).exists():
                 return Response(serializer.errors, status=status.HTTP_409_CONFLICT)
             else:
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
-        
+    
 
 class CardDetail(APIView):
     """
